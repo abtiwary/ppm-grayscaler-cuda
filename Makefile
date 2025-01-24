@@ -1,4 +1,6 @@
-NVCC := /usr/bin/nvcc
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64/ 
+
+NVCC := /usr/local/cuda/bin/nvcc
 CXX := /usr/bin/g++
 CUDA_HOME := /usr/local/cuda/
 LIB := -L$(CUDA_HOME)/lib64

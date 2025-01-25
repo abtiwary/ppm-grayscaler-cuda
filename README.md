@@ -1,6 +1,6 @@
 # CUDA PPM-Grayscaler
 
-An CUDA/C++ application to convert a ppm image to grayscale.
+A CUDA/C++ application to convert a ppm image to grayscale.
 
 # Platform
 

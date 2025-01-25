@@ -51,7 +51,7 @@ void grayscaler(int width, int height, uint8_t* image_data) {
 
     // write an output image
     FILE* outfile = fopen("/home/pimeson/temp/grayscale_cuda.ppm", "w+");
-    fprintf(outfile, "P6\n%d %d 255\n", width, height);
+    fprintf(outfile, "P6\n%d %d\n255\n", width, height);
     fwrite(host_img, width * height * 3, sizeof(uint8_t), outfile); 
     fclose(outfile);
     

@@ -1,15 +1,15 @@
-export LD_LIBRARY_PATH=/usr/local/cuda/lib64/ 
 
-NVCC := /usr/local/cuda/bin/nvcc
+NVCC := nvcc
 CXX := /usr/bin/g++
-CUDA_HOME := /usr/local/cuda/
+
+CUDA_HOME := /usr/local/cuda
 LIB := -L$(CUDA_HOME)/lib64
 
 all: kernel.o kernel_dlink.o
-	$(CXX) -o main main.cpp ppm_image.cpp kernel.o kernel_dlink.o $(LIB) -lcuda -lcudart
+	$(CXX) -o main main.cpp ppm_image.cpp kernel.o kernel_dlink.o -lcuda -lcudart
 
 kernel_dlink.o: kernel.o
-	$(NVCC) --gpu-architecture=sm_50 --device-link kernel.o --output-file kernel_dlink.o
+	$(NVCC) --gpu-architecture=sm_50 --device-link kernel.o --output-file kernel_dlink.o -lcuda -lcudart
 
 kernel.o:
 	$(NVCC) --gpu-architecture=sm_50 --device-c kernel.cu
